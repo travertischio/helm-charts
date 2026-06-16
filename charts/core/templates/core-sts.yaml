@@ -99,6 +99,10 @@ spec:
         resources:
 {{ toYaml .Values.core.resources | indent 10 }}
         {{- end }}
+        {{- with .Values.core.readinessProbe }}
+        readinessProbe:
+          {{- toYaml . | nindent 10 }}
+        {{- end }}
         volumeMounts:
         - mountPath: /config
           name: core-config
