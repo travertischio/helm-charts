@@ -12,10 +12,7 @@ metadata:
     heritage: {{ .Release.Service }}
 data:
   ADMIN_PORT: {{ .Values.web.horizonConfig.adminPort | quote}}
-  ALLOW_EMPTY_LEDGER_DATA_RESPONSES: {{ .Values.web.horizonConfig.allowEmptyLedgerDataResponses | quote}}
   CONNECTION_TIMEOUT: {{ .Values.web.horizonConfig.connectionTimeout | quote}}
-  ENABLE_ACCOUNTS_FOR_SIGNER: {{ .Values.web.horizonConfig.enableAccountsForSigner | quote}}
-  ENABLE_ASSET_STATS: {{ .Values.web.horizonConfig.enableAssetStats | quote}}
   HISTORY_ARCHIVE_URLS: {{ include "horizon.historyArchiveUrls" . | quote }}
   INGEST: "false"
   MAX_DB_CONNECTIONS: {{ .Values.web.horizonConfig.maxDBConnections | quote}}

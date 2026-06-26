@@ -83,16 +83,11 @@ ingest:
   ## Horizon config
   horizonConfig:
     adminPort: 6000
-    allowEmptyLedgerDataResponses: true
     applyMigrations: true
-    captiveCoreUseDb: false
     connectionTimeout: 10
     disablePathFinding: false
-    enableAccountsForSigner: false
-    enableAssetStats: true
     friendbotUrl: ""
     historyRetentionCount: 34560
-    ingestFailedTransactions: true
     maxDBConnections: 20
     perHourRateLimit: 3600
     port: 8000
@@ -232,10 +227,7 @@ web:
   ## Horizon config
   horizonConfig:
     adminPort: 6000
-    allowEmptyLedgerDataResponses: true
     connectionTimeout: 10
-    enableAccountsForSigner: false
-    enableAssetStats: true
     maxDBConnections: 20
     maxPathLength: 3
     perHourRateLimit: 8000
