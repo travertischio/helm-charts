@@ -69,21 +69,20 @@ cnpg:
     ## Free-form pass-through for the CNPG Cluster spec. Set any field
     ## supported by the CNPG Cluster CRD here, e.g.:
     ##
-    ##   spec:
-    ##     instances: 3
-    ##     storage:
-    ##       size: 200Gi
-    ##       storageClass: fast-ssd
-    ##     enablePDB: true
-    ##     monitoring:
-    ##       enablePodMonitor: true
-    ##     postgresql:
-    ##       parameters:
-    ##         max_connections: "200"
-    ##     resources:
-    ##       requests:
-    ##         cpu: 500m
-    ##         memory: 1Gi
+    ##   instances: 3
+    ##   storage:
+    ##     size: 200Gi
+    ##     storageClass: fast-ssd
+    ##   enablePDB: true
+    ##   monitoring:
+    ##     enablePodMonitor: true
+    ##   postgresql:
+    ##     parameters:
+    ##       max_connections: "200"
+    ##   resources:
+    ##     requests:
+    ##       cpu: 500m
+    ##       memory: 1Gi
     ##
     ## Notes:
     ## - Fields are passed through unchanged; validation is done by the CNPG
