@@ -58,18 +58,43 @@ global:
 ## for ingest/web unless ingest.existingSecret / web.existingSecret are set.
 cnpg:
   enabled: false
-  cluster:
-    ## Optional cluster name override. Defaults to <release>-horizon-db
-    name: ""
-    instances: 1
-    imageName: ""
-    storage:
-      size: 50Gi
-      storageClass: ""
   auth:
     username: horizon
     password: ""
     database: horizon
+  cluster:
+    ## Optional cluster name override. Defaults to <release>-horizon-db
+    name: ""
+    spec: {}
+    ## Free-form pass-through for the CNPG Cluster spec. Set any field
+    ## supported by the CNPG Cluster CRD here, e.g.:
+    ##
+    ##   spec:
+    ##     instances: 3
+    ##     storage:
+    ##       size: 200Gi
+    ##       storageClass: fast-ssd
+    ##     enablePDB: true
+    ##     monitoring:
+    ##       enablePodMonitor: true
+    ##     postgresql:
+    ##       parameters:
+    ##         max_connections: "200"
+    ##     resources:
+    ##       requests:
+    ##         cpu: 500m
+    ##         memory: 1Gi
+    ##
+    ## Notes:
+    ## - Fields are passed through unchanged; validation is done by the CNPG
+    ##   webhook, not by this chart.
+    ## - `bootstrap` is auto-populated from `cnpg.auth.*` and the chart-
+    ##   managed app secret. Override it only if you also set
+    ##   ingest.existingSecret / web.existingSecret to bring your own DB URL.
+    ## - Built-in defaults are `instances: 1` and `storage.size: 50Gi`;
+    ##   anything set here (or via the legacy `cnpg.cluster.storage.*` /
+    ##   `cnpg.cluster.instances` / `cnpg.cluster.imageName` shortcuts)
+    ##   overrides them.
 
 ingest:
   ## See global.image.horizon for image settings
